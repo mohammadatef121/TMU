@@ -1,0 +1,1646 @@
+
+TMU_Project.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000008e2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  000008e2  00000976  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000022  00800064  00800064  0000097a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000097a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000009ac  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000158  00000000  00000000  000009e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000128f  00000000  00000000  00000b40  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000a73  00000000  00000000  00001dcf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000da0  00000000  00000000  00002842  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000031c  00000000  00000000  000035e4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006c3  00000000  00000000  00003900  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000d1f  00000000  00000000  00003fc3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000f0  00000000  00000000  00004ce2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 31 00 	jmp	0x62	; 0x62 <__ctors_end>
+   4:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   8:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  10:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  14:	0c 94 d6 02 	jmp	0x5ac	; 0x5ac <__vector_5>
+  18:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  1c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  20:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  24:	0c 94 ad 02 	jmp	0x55a	; 0x55a <__vector_9>
+  28:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  2c:	0c 94 84 02 	jmp	0x508	; 0x508 <__vector_11>
+  30:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  34:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  38:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  3c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  40:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  44:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  48:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  4c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  50:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  54:	35 02       	muls	r19, r21
+  56:	39 02       	muls	r19, r25
+  58:	3d 02       	muls	r19, r29
+  5a:	3d 02       	muls	r19, r29
+  5c:	41 02       	muls	r20, r17
+  5e:	41 02       	muls	r20, r17
+  60:	45 02       	muls	r20, r21
+
+00000062 <__ctors_end>:
+  62:	11 24       	eor	r1, r1
+  64:	1f be       	out	0x3f, r1	; 63
+  66:	cf e5       	ldi	r28, 0x5F	; 95
+  68:	d8 e0       	ldi	r29, 0x08	; 8
+  6a:	de bf       	out	0x3e, r29	; 62
+  6c:	cd bf       	out	0x3d, r28	; 61
+
+0000006e <__do_copy_data>:
+  6e:	10 e0       	ldi	r17, 0x00	; 0
+  70:	a0 e6       	ldi	r26, 0x60	; 96
+  72:	b0 e0       	ldi	r27, 0x00	; 0
+  74:	e2 ee       	ldi	r30, 0xE2	; 226
+  76:	f8 e0       	ldi	r31, 0x08	; 8
+  78:	02 c0       	rjmp	.+4      	; 0x7e <__do_copy_data+0x10>
+  7a:	05 90       	lpm	r0, Z+
+  7c:	0d 92       	st	X+, r0
+  7e:	a4 36       	cpi	r26, 0x64	; 100
+  80:	b1 07       	cpc	r27, r17
+  82:	d9 f7       	brne	.-10     	; 0x7a <__do_copy_data+0xc>
+
+00000084 <__do_clear_bss>:
+  84:	20 e0       	ldi	r18, 0x00	; 0
+  86:	a4 e6       	ldi	r26, 0x64	; 100
+  88:	b0 e0       	ldi	r27, 0x00	; 0
+  8a:	01 c0       	rjmp	.+2      	; 0x8e <.do_clear_bss_start>
+
+0000008c <.do_clear_bss_loop>:
+  8c:	1d 92       	st	X+, r1
+
+0000008e <.do_clear_bss_start>:
+  8e:	a6 38       	cpi	r26, 0x86	; 134
+  90:	b2 07       	cpc	r27, r18
+  92:	e1 f7       	brne	.-8      	; 0x8c <.do_clear_bss_loop>
+  94:	0e 94 64 00 	call	0xc8	; 0xc8 <main>
+  98:	0c 94 6f 04 	jmp	0x8de	; 0x8de <_exit>
+
+0000009c <__bad_interrupt>:
+  9c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a0 <cbk1>:
+#include "Timer.h"
+#include "Sleep.h"
+
+void cbk1(void)
+{
+	DIO_Toggle(GPIOA,BIT0);
+  a0:	61 e0       	ldi	r22, 0x01	; 1
+  a2:	80 e0       	ldi	r24, 0x00	; 0
+  a4:	0e 94 17 01 	call	0x22e	; 0x22e <DIO_Toggle>
+  a8:	08 95       	ret
+
+000000aa <cbk2>:
+}
+
+void cbk2(void)
+{
+	DIO_Toggle(GPIOA,BIT1);
+  aa:	62 e0       	ldi	r22, 0x02	; 2
+  ac:	80 e0       	ldi	r24, 0x00	; 0
+  ae:	0e 94 17 01 	call	0x22e	; 0x22e <DIO_Toggle>
+  b2:	08 95       	ret
+
+000000b4 <cbk3>:
+}
+
+void cbk3(void)
+{
+	DIO_Toggle(GPIOA,BIT2);
+  b4:	64 e0       	ldi	r22, 0x04	; 4
+  b6:	80 e0       	ldi	r24, 0x00	; 0
+  b8:	0e 94 17 01 	call	0x22e	; 0x22e <DIO_Toggle>
+  bc:	08 95       	ret
+
+000000be <cbk4>:
+}
+
+void cbk4(void)
+{
+	DIO_Toggle(GPIOA,BIT3);
+  be:	68 e0       	ldi	r22, 0x08	; 8
+  c0:	80 e0       	ldi	r24, 0x00	; 0
+  c2:	0e 94 17 01 	call	0x22e	; 0x22e <DIO_Toggle>
+  c6:	08 95       	ret
+
+000000c8 <main>:
+}
+
+int main(void)
+{
+  c8:	cf 93       	push	r28
+  ca:	df 93       	push	r29
+  cc:	cd b7       	in	r28, 0x3d	; 61
+  ce:	de b7       	in	r29, 0x3e	; 62
+  d0:	67 97       	sbiw	r28, 0x17	; 23
+  d2:	0f b6       	in	r0, 0x3f	; 63
+  d4:	f8 94       	cli
+  d6:	de bf       	out	0x3e, r29	; 62
+  d8:	0f be       	out	0x3f, r0	; 63
+  da:	cd bf       	out	0x3d, r28	; 61
+	GIE();
+  dc:	8f b7       	in	r24, 0x3f	; 63
+  de:	80 68       	ori	r24, 0x80	; 128
+  e0:	8f bf       	out	0x3f, r24	; 63
+	
+	DIO_Cfg_s DIO;
+	DIO.dir=OUTPUT;
+  e2:	8f ef       	ldi	r24, 0xFF	; 255
+  e4:	8b 83       	std	Y+3, r24	; 0x03
+	DIO.GPIO=GPIOA;
+  e6:	19 82       	std	Y+1, r1	; 0x01
+	DIO.pins=FULL_PORT;
+  e8:	8a 83       	std	Y+2, r24	; 0x02
+	DIO_init(&DIO);
+  ea:	ce 01       	movw	r24, r28
+  ec:	01 96       	adiw	r24, 0x01	; 1
+  ee:	0e 94 ba 00 	call	0x174	; 0x174 <DIO_init>
+		
+	TMU_Init();
+  f2:	0e 94 14 03 	call	0x628	; 0x628 <TMU_Init>
+	
+	TMU_Task_cfg_t TMU0;
+	TMU0.current_time=0;
+  f6:	1d 82       	std	Y+5, r1	; 0x05
+	TMU0.Period_Time=1;
+  f8:	11 e0       	ldi	r17, 0x01	; 1
+  fa:	1e 83       	std	Y+6, r17	; 0x06
+	TMU0.ptrfu_Timer_Cbk=cbk1;
+  fc:	80 e5       	ldi	r24, 0x50	; 80
+  fe:	90 e0       	ldi	r25, 0x00	; 0
+ 100:	98 87       	std	Y+8, r25	; 0x08
+ 102:	8f 83       	std	Y+7, r24	; 0x07
+	TMU0.Repetition=PERIODIC;
+ 104:	1c 82       	std	Y+4, r1	; 0x04
+	TMU_Start(&TMU0);
+ 106:	ce 01       	movw	r24, r28
+ 108:	04 96       	adiw	r24, 0x04	; 4
+ 10a:	0e 94 43 03 	call	0x686	; 0x686 <TMU_Start>
+	
+	TMU_Task_cfg_t TMU2;
+	TMU2.current_time=0;
+ 10e:	1a 86       	std	Y+10, r1	; 0x0a
+	TMU2.Period_Time=2;
+ 110:	82 e0       	ldi	r24, 0x02	; 2
+ 112:	8b 87       	std	Y+11, r24	; 0x0b
+	TMU2.ptrfu_Timer_Cbk=cbk2;
+ 114:	85 e5       	ldi	r24, 0x55	; 85
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	9d 87       	std	Y+13, r25	; 0x0d
+ 11a:	8c 87       	std	Y+12, r24	; 0x0c
+	TMU2.Repetition=PERIODIC;
+ 11c:	19 86       	std	Y+9, r1	; 0x09
+	TMU_Start(&TMU2);	
+ 11e:	ce 01       	movw	r24, r28
+ 120:	09 96       	adiw	r24, 0x09	; 9
+ 122:	0e 94 43 03 	call	0x686	; 0x686 <TMU_Start>
+	
+	TMU_Task_cfg_t TMU3;
+	TMU3.current_time=150;
+ 126:	86 e9       	ldi	r24, 0x96	; 150
+ 128:	8f 87       	std	Y+15, r24	; 0x0f
+	TMU3.Period_Time=3;
+ 12a:	83 e0       	ldi	r24, 0x03	; 3
+ 12c:	88 8b       	std	Y+16, r24	; 0x10
+	TMU3.ptrfu_Timer_Cbk=cbk3;
+ 12e:	8a e5       	ldi	r24, 0x5A	; 90
+ 130:	90 e0       	ldi	r25, 0x00	; 0
+ 132:	9a 8b       	std	Y+18, r25	; 0x12
+ 134:	89 8b       	std	Y+17, r24	; 0x11
+	TMU3.Repetition=PERIODIC;
+ 136:	1e 86       	std	Y+14, r1	; 0x0e
+	TMU_Start(&TMU3);
+ 138:	ce 01       	movw	r24, r28
+ 13a:	0e 96       	adiw	r24, 0x0e	; 14
+ 13c:	0e 94 43 03 	call	0x686	; 0x686 <TMU_Start>
+	
+	TMU_Task_cfg_t TMU4;
+	TMU4.current_time=0;
+ 140:	1c 8a       	std	Y+20, r1	; 0x14
+	TMU4.Period_Time=1;
+ 142:	1d 8b       	std	Y+21, r17	; 0x15
+	TMU4.ptrfu_Timer_Cbk=cbk4;
+ 144:	8f e5       	ldi	r24, 0x5F	; 95
+ 146:	90 e0       	ldi	r25, 0x00	; 0
+ 148:	9f 8b       	std	Y+23, r25	; 0x17
+ 14a:	8e 8b       	std	Y+22, r24	; 0x16
+	TMU4.Repetition=PERIODIC;
+ 14c:	1b 8a       	std	Y+19, r1	; 0x13
+	TMU_Start(&TMU4);
+ 14e:	ce 01       	movw	r24, r28
+ 150:	43 96       	adiw	r24, 0x13	; 19
+ 152:	0e 94 43 03 	call	0x686	; 0x686 <TMU_Start>
+	
+	
+	
+	Tmu_Stop(cbk4);
+ 156:	8f e5       	ldi	r24, 0x5F	; 95
+ 158:	90 e0       	ldi	r25, 0x00	; 0
+ 15a:	0e 94 a6 03 	call	0x74c	; 0x74c <Tmu_Stop>
+	Timer.Timer_Mode=TIMER_MODE;
+	Timer.Timer_Polling_Or_Interrupt=TIMER_INTERRUPT_MODE;
+	Timer.Timer_Prescaler=TIMER_PRESCALER_64;
+	Timer_Init(&Timer);
+	Timer_Start(1,2500);*/
+	Sleep_Init();
+ 15e:	0e 94 35 01 	call	0x26a	; 0x26a <Sleep_Init>
+		
+    while (1) 
+    {
+		PORTA_DATA|=0x80;
+ 162:	df 9a       	sbi	0x1b, 7	; 27
+		TMU_Dispatcher();
+ 164:	0e 94 f3 03 	call	0x7e6	; 0x7e6 <TMU_Dispatcher>
+		PORTA_DATA&=~(0x80);
+ 168:	df 98       	cbi	0x1b, 7	; 27
+		Sleep_Start(Idle);
+ 16a:	80 e0       	ldi	r24, 0x00	; 0
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	0e 94 3a 01 	call	0x274	; 0x274 <Sleep_Start>
+ 172:	f7 cf       	rjmp	.-18     	; 0x162 <main+0x9a>
+
+00000174 <DIO_init>:
+			return E_NOK;
+			break;
+		}	
+	}
+	return E_OK;
+}
+ 174:	fc 01       	movw	r30, r24
+ 176:	89 2b       	or	r24, r25
+ 178:	09 f4       	brne	.+2      	; 0x17c <DIO_init+0x8>
+ 17a:	4f c0       	rjmp	.+158    	; 0x21a <DIO_init+0xa6>
+ 17c:	80 81       	ld	r24, Z
+ 17e:	81 30       	cpi	r24, 0x01	; 1
+ 180:	c1 f0       	breq	.+48     	; 0x1b2 <DIO_init+0x3e>
+ 182:	28 f0       	brcs	.+10     	; 0x18e <DIO_init+0x1a>
+ 184:	82 30       	cpi	r24, 0x02	; 2
+ 186:	39 f1       	breq	.+78     	; 0x1d6 <DIO_init+0x62>
+ 188:	83 30       	cpi	r24, 0x03	; 3
+ 18a:	b1 f1       	breq	.+108    	; 0x1f8 <DIO_init+0x84>
+ 18c:	48 c0       	rjmp	.+144    	; 0x21e <DIO_init+0xaa>
+ 18e:	32 81       	ldd	r19, Z+2	; 0x02
+ 190:	33 23       	and	r19, r19
+ 192:	41 f0       	breq	.+16     	; 0x1a4 <DIO_init+0x30>
+ 194:	3f 3f       	cpi	r19, 0xFF	; 255
+ 196:	09 f0       	breq	.+2      	; 0x19a <DIO_init+0x26>
+ 198:	44 c0       	rjmp	.+136    	; 0x222 <DIO_init+0xae>
+ 19a:	2a b3       	in	r18, 0x1a	; 26
+ 19c:	91 81       	ldd	r25, Z+1	; 0x01
+ 19e:	92 2b       	or	r25, r18
+ 1a0:	9a bb       	out	0x1a, r25	; 26
+ 1a2:	08 95       	ret
+ 1a4:	2a b3       	in	r18, 0x1a	; 26
+ 1a6:	91 81       	ldd	r25, Z+1	; 0x01
+ 1a8:	90 95       	com	r25
+ 1aa:	92 23       	and	r25, r18
+ 1ac:	9a bb       	out	0x1a, r25	; 26
+ 1ae:	83 2f       	mov	r24, r19
+ 1b0:	08 95       	ret
+ 1b2:	32 81       	ldd	r19, Z+2	; 0x02
+ 1b4:	33 23       	and	r19, r19
+ 1b6:	41 f0       	breq	.+16     	; 0x1c8 <DIO_init+0x54>
+ 1b8:	3f 3f       	cpi	r19, 0xFF	; 255
+ 1ba:	c1 f5       	brne	.+112    	; 0x22c <DIO_init+0xb8>
+ 1bc:	97 b3       	in	r25, 0x17	; 23
+ 1be:	81 81       	ldd	r24, Z+1	; 0x01
+ 1c0:	89 2b       	or	r24, r25
+ 1c2:	87 bb       	out	0x17, r24	; 23
+ 1c4:	80 e0       	ldi	r24, 0x00	; 0
+ 1c6:	08 95       	ret
+ 1c8:	27 b3       	in	r18, 0x17	; 23
+ 1ca:	91 81       	ldd	r25, Z+1	; 0x01
+ 1cc:	90 95       	com	r25
+ 1ce:	92 23       	and	r25, r18
+ 1d0:	97 bb       	out	0x17, r25	; 23
+ 1d2:	83 2f       	mov	r24, r19
+ 1d4:	08 95       	ret
+ 1d6:	82 81       	ldd	r24, Z+2	; 0x02
+ 1d8:	88 23       	and	r24, r24
+ 1da:	41 f0       	breq	.+16     	; 0x1ec <DIO_init+0x78>
+ 1dc:	8f 3f       	cpi	r24, 0xFF	; 255
+ 1de:	19 f5       	brne	.+70     	; 0x226 <DIO_init+0xb2>
+ 1e0:	94 b3       	in	r25, 0x14	; 20
+ 1e2:	81 81       	ldd	r24, Z+1	; 0x01
+ 1e4:	89 2b       	or	r24, r25
+ 1e6:	84 bb       	out	0x14, r24	; 20
+ 1e8:	80 e0       	ldi	r24, 0x00	; 0
+ 1ea:	08 95       	ret
+ 1ec:	24 b3       	in	r18, 0x14	; 20
+ 1ee:	91 81       	ldd	r25, Z+1	; 0x01
+ 1f0:	90 95       	com	r25
+ 1f2:	92 23       	and	r25, r18
+ 1f4:	94 bb       	out	0x14, r25	; 20
+ 1f6:	08 95       	ret
+ 1f8:	82 81       	ldd	r24, Z+2	; 0x02
+ 1fa:	88 23       	and	r24, r24
+ 1fc:	41 f0       	breq	.+16     	; 0x20e <DIO_init+0x9a>
+ 1fe:	8f 3f       	cpi	r24, 0xFF	; 255
+ 200:	a1 f4       	brne	.+40     	; 0x22a <DIO_init+0xb6>
+ 202:	9a b3       	in	r25, 0x1a	; 26
+ 204:	81 81       	ldd	r24, Z+1	; 0x01
+ 206:	89 2b       	or	r24, r25
+ 208:	8a bb       	out	0x1a, r24	; 26
+ 20a:	80 e0       	ldi	r24, 0x00	; 0
+ 20c:	08 95       	ret
+ 20e:	24 b3       	in	r18, 0x14	; 20
+ 210:	91 81       	ldd	r25, Z+1	; 0x01
+ 212:	90 95       	com	r25
+ 214:	92 23       	and	r25, r18
+ 216:	94 bb       	out	0x14, r25	; 20
+ 218:	08 95       	ret
+ 21a:	81 e0       	ldi	r24, 0x01	; 1
+ 21c:	08 95       	ret
+ 21e:	81 e0       	ldi	r24, 0x01	; 1
+ 220:	08 95       	ret
+ 222:	81 e0       	ldi	r24, 0x01	; 1
+ 224:	08 95       	ret
+ 226:	81 e0       	ldi	r24, 0x01	; 1
+ 228:	08 95       	ret
+ 22a:	81 e0       	ldi	r24, 0x01	; 1
+ 22c:	08 95       	ret
+
+0000022e <DIO_Toggle>:
+
+ERROR_STATUS DIO_Toggle (uint8 GPIO, uint8 pins)
+{
+	switch (GPIO)
+ 22e:	81 30       	cpi	r24, 0x01	; 1
+ 230:	59 f0       	breq	.+22     	; 0x248 <DIO_Toggle+0x1a>
+ 232:	28 f0       	brcs	.+10     	; 0x23e <DIO_Toggle+0x10>
+ 234:	82 30       	cpi	r24, 0x02	; 2
+ 236:	69 f0       	breq	.+26     	; 0x252 <DIO_Toggle+0x24>
+ 238:	83 30       	cpi	r24, 0x03	; 3
+ 23a:	81 f0       	breq	.+32     	; 0x25c <DIO_Toggle+0x2e>
+ 23c:	14 c0       	rjmp	.+40     	; 0x266 <DIO_Toggle+0x38>
+	{
+		case GPIOA:
+		PORTA_DATA^=pins;
+ 23e:	8b b3       	in	r24, 0x1b	; 27
+ 240:	68 27       	eor	r22, r24
+ 242:	6b bb       	out	0x1b, r22	; 27
+//------------------------------------------------------------------------------------------------------//
+		default:
+		return E_NOK;
+		break;
+	}
+	return E_OK;
+ 244:	80 e0       	ldi	r24, 0x00	; 0
+{
+	switch (GPIO)
+	{
+		case GPIOA:
+		PORTA_DATA^=pins;
+		break;
+ 246:	08 95       	ret
+//------------------------------------------------------------------------------------------------------//
+		case GPIOB:
+		PORTB_DATA^=pins;
+ 248:	88 b3       	in	r24, 0x18	; 24
+ 24a:	68 27       	eor	r22, r24
+ 24c:	68 bb       	out	0x18, r22	; 24
+//------------------------------------------------------------------------------------------------------//
+		default:
+		return E_NOK;
+		break;
+	}
+	return E_OK;
+ 24e:	80 e0       	ldi	r24, 0x00	; 0
+		PORTA_DATA^=pins;
+		break;
+//------------------------------------------------------------------------------------------------------//
+		case GPIOB:
+		PORTB_DATA^=pins;
+		break;
+ 250:	08 95       	ret
+//------------------------------------------------------------------------------------------------------//
+		case GPIOC:
+		PORTC_DATA^=pins;
+ 252:	85 b3       	in	r24, 0x15	; 21
+ 254:	68 27       	eor	r22, r24
+ 256:	65 bb       	out	0x15, r22	; 21
+//------------------------------------------------------------------------------------------------------//
+		default:
+		return E_NOK;
+		break;
+	}
+	return E_OK;
+ 258:	80 e0       	ldi	r24, 0x00	; 0
+		PORTB_DATA^=pins;
+		break;
+//------------------------------------------------------------------------------------------------------//
+		case GPIOC:
+		PORTC_DATA^=pins;
+		break;
+ 25a:	08 95       	ret
+//------------------------------------------------------------------------------------------------------//
+		case GPIOD:
+		PORTD_DATA^=pins;
+ 25c:	82 b3       	in	r24, 0x12	; 18
+ 25e:	68 27       	eor	r22, r24
+ 260:	62 bb       	out	0x12, r22	; 18
+//------------------------------------------------------------------------------------------------------//
+		default:
+		return E_NOK;
+		break;
+	}
+	return E_OK;
+ 262:	80 e0       	ldi	r24, 0x00	; 0
+		PORTC_DATA^=pins;
+		break;
+//------------------------------------------------------------------------------------------------------//
+		case GPIOD:
+		PORTD_DATA^=pins;
+		break;
+ 264:	08 95       	ret
+//------------------------------------------------------------------------------------------------------//
+		default:
+		return E_NOK;
+ 266:	81 e0       	ldi	r24, 0x01	; 1
+		break;
+	}
+	return E_OK;
+ 268:	08 95       	ret
+
+0000026a <Sleep_Init>:
+#include "Sleep.h"
+#include "registers.h"
+
+ERROR_STATUS Sleep_Init()
+{
+	MCUCR|=(1<<7);
+ 26a:	85 b7       	in	r24, 0x35	; 53
+ 26c:	80 68       	ori	r24, 0x80	; 128
+ 26e:	85 bf       	out	0x35, r24	; 53
+	return E_OK;
+}
+ 270:	80 e0       	ldi	r24, 0x00	; 0
+ 272:	08 95       	ret
+
+00000274 <Sleep_Start>:
+
+ERROR_STATUS Sleep_Start(uint8 Mode)
+{
+	switch(Mode)
+ 274:	82 30       	cpi	r24, 0x02	; 2
+ 276:	a1 f0       	breq	.+40     	; 0x2a0 <Sleep_Start+0x2c>
+ 278:	28 f4       	brcc	.+10     	; 0x284 <Sleep_Start+0x10>
+ 27a:	88 23       	and	r24, r24
+ 27c:	51 f0       	breq	.+20     	; 0x292 <Sleep_Start+0x1e>
+ 27e:	81 30       	cpi	r24, 0x01	; 1
+ 280:	59 f0       	breq	.+22     	; 0x298 <Sleep_Start+0x24>
+ 282:	20 c0       	rjmp	.+64     	; 0x2c4 <Sleep_Start+0x50>
+ 284:	86 30       	cpi	r24, 0x06	; 6
+ 286:	a1 f0       	breq	.+40     	; 0x2b0 <Sleep_Start+0x3c>
+ 288:	87 30       	cpi	r24, 0x07	; 7
+ 28a:	b1 f0       	breq	.+44     	; 0x2b8 <Sleep_Start+0x44>
+ 28c:	83 30       	cpi	r24, 0x03	; 3
+ 28e:	d1 f4       	brne	.+52     	; 0x2c4 <Sleep_Start+0x50>
+ 290:	0b c0       	rjmp	.+22     	; 0x2a8 <Sleep_Start+0x34>
+	{
+		case Idle:
+		MCUCR|=Idle;
+ 292:	85 b7       	in	r24, 0x35	; 53
+ 294:	85 bf       	out	0x35, r24	; 53
+		break;
+ 296:	13 c0       	rjmp	.+38     	; 0x2be <Sleep_Start+0x4a>
+		
+		case ADC_Noise_Reduction:
+		MCUCR|=ADC_Noise_Reduction;
+ 298:	85 b7       	in	r24, 0x35	; 53
+ 29a:	81 60       	ori	r24, 0x01	; 1
+ 29c:	85 bf       	out	0x35, r24	; 53
+		break;
+ 29e:	0f c0       	rjmp	.+30     	; 0x2be <Sleep_Start+0x4a>
+		
+		case Power_Down:
+		MCUCR|=Power_Down;
+ 2a0:	85 b7       	in	r24, 0x35	; 53
+ 2a2:	82 60       	ori	r24, 0x02	; 2
+ 2a4:	85 bf       	out	0x35, r24	; 53
+		break;
+ 2a6:	0b c0       	rjmp	.+22     	; 0x2be <Sleep_Start+0x4a>
+		
+		case Power_Save:
+		MCUCR|=Power_Save;
+ 2a8:	85 b7       	in	r24, 0x35	; 53
+ 2aa:	83 60       	ori	r24, 0x03	; 3
+ 2ac:	85 bf       	out	0x35, r24	; 53
+		break;
+ 2ae:	07 c0       	rjmp	.+14     	; 0x2be <Sleep_Start+0x4a>
+		
+		case Standby:
+		MCUCR|=Standby;
+ 2b0:	85 b7       	in	r24, 0x35	; 53
+ 2b2:	86 60       	ori	r24, 0x06	; 6
+ 2b4:	85 bf       	out	0x35, r24	; 53
+		break;
+ 2b6:	03 c0       	rjmp	.+6      	; 0x2be <Sleep_Start+0x4a>
+
+		case Extended_Standby:
+		MCUCR|=Extended_Standby;
+ 2b8:	85 b7       	in	r24, 0x35	; 53
+ 2ba:	87 60       	ori	r24, 0x07	; 7
+ 2bc:	85 bf       	out	0x35, r24	; 53
+		default:
+		return E_NOK;
+		break;	
+	}
+	
+	asm ("SLEEP");
+ 2be:	88 95       	sleep
+	return E_OK;
+ 2c0:	80 e0       	ldi	r24, 0x00	; 0
+ 2c2:	08 95       	ret
+		case Extended_Standby:
+		MCUCR|=Extended_Standby;
+		break;	
+		
+		default:
+		return E_NOK;
+ 2c4:	81 e0       	ldi	r24, 0x01	; 1
+		break;	
+	}
+	
+	asm ("SLEEP");
+	return E_OK;
+}
+ 2c6:	08 95       	ret
+
+000002c8 <Timer_Init>:
+		default:
+		return E_NOK;
+		break;
+	}
+	return E_OK;
+}
+ 2c8:	dc 01       	movw	r26, r24
+ 2ca:	8c 91       	ld	r24, X
+ 2cc:	81 30       	cpi	r24, 0x01	; 1
+ 2ce:	09 f4       	brne	.+2      	; 0x2d2 <Timer_Init+0xa>
+ 2d0:	51 c0       	rjmp	.+162    	; 0x374 <Timer_Init+0xac>
+ 2d2:	20 f0       	brcs	.+8      	; 0x2dc <Timer_Init+0x14>
+ 2d4:	82 30       	cpi	r24, 0x02	; 2
+ 2d6:	09 f4       	brne	.+2      	; 0x2da <Timer_Init+0x12>
+ 2d8:	ad c0       	rjmp	.+346    	; 0x434 <__LOCK_REGION_LENGTH__+0x34>
+ 2da:	e7 c0       	rjmp	.+462    	; 0x4aa <__LOCK_REGION_LENGTH__+0xaa>
+ 2dc:	14 96       	adiw	r26, 0x04	; 4
+ 2de:	2d 91       	ld	r18, X+
+ 2e0:	3c 91       	ld	r19, X
+ 2e2:	15 97       	sbiw	r26, 0x05	; 5
+ 2e4:	30 93 69 00 	sts	0x0069, r19	; 0x800069 <sga_Timer0CBF+0x1>
+ 2e8:	20 93 68 00 	sts	0x0068, r18	; 0x800068 <sga_Timer0CBF>
+ 2ec:	11 96       	adiw	r26, 0x01	; 1
+ 2ee:	9c 91       	ld	r25, X
+ 2f0:	11 97       	sbiw	r26, 0x01	; 1
+ 2f2:	91 30       	cpi	r25, 0x01	; 1
+ 2f4:	41 f1       	breq	.+80     	; 0x346 <Timer_Init+0x7e>
+ 2f6:	18 f0       	brcs	.+6      	; 0x2fe <Timer_Init+0x36>
+ 2f8:	92 30       	cpi	r25, 0x02	; 2
+ 2fa:	49 f1       	breq	.+82     	; 0x34e <Timer_Init+0x86>
+ 2fc:	d8 c0       	rjmp	.+432    	; 0x4ae <__LOCK_REGION_LENGTH__+0xae>
+ 2fe:	13 96       	adiw	r26, 0x03	; 3
+ 300:	9c 91       	ld	r25, X
+ 302:	13 97       	sbiw	r26, 0x03	; 3
+ 304:	94 30       	cpi	r25, 0x04	; 4
+ 306:	99 f0       	breq	.+38     	; 0x32e <Timer_Init+0x66>
+ 308:	28 f4       	brcc	.+10     	; 0x314 <Timer_Init+0x4c>
+ 30a:	91 30       	cpi	r25, 0x01	; 1
+ 30c:	41 f0       	breq	.+16     	; 0x31e <Timer_Init+0x56>
+ 30e:	92 30       	cpi	r25, 0x02	; 2
+ 310:	51 f0       	breq	.+20     	; 0x326 <Timer_Init+0x5e>
+ 312:	cf c0       	rjmp	.+414    	; 0x4b2 <__LOCK_REGION_LENGTH__+0xb2>
+ 314:	96 30       	cpi	r25, 0x06	; 6
+ 316:	79 f0       	breq	.+30     	; 0x336 <Timer_Init+0x6e>
+ 318:	97 30       	cpi	r25, 0x07	; 7
+ 31a:	89 f0       	breq	.+34     	; 0x33e <Timer_Init+0x76>
+ 31c:	ca c0       	rjmp	.+404    	; 0x4b2 <__LOCK_REGION_LENGTH__+0xb2>
+ 31e:	91 e0       	ldi	r25, 0x01	; 1
+ 320:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 324:	17 c0       	rjmp	.+46     	; 0x354 <Timer_Init+0x8c>
+ 326:	92 e0       	ldi	r25, 0x02	; 2
+ 328:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 32c:	13 c0       	rjmp	.+38     	; 0x354 <Timer_Init+0x8c>
+ 32e:	93 e0       	ldi	r25, 0x03	; 3
+ 330:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 334:	0f c0       	rjmp	.+30     	; 0x354 <Timer_Init+0x8c>
+ 336:	94 e0       	ldi	r25, 0x04	; 4
+ 338:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 33c:	0b c0       	rjmp	.+22     	; 0x354 <Timer_Init+0x8c>
+ 33e:	95 e0       	ldi	r25, 0x05	; 5
+ 340:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 344:	07 c0       	rjmp	.+14     	; 0x354 <Timer_Init+0x8c>
+ 346:	97 e0       	ldi	r25, 0x07	; 7
+ 348:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 34c:	03 c0       	rjmp	.+6      	; 0x354 <Timer_Init+0x8c>
+ 34e:	96 e0       	ldi	r25, 0x06	; 6
+ 350:	90 93 6d 00 	sts	0x006D, r25	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 354:	12 96       	adiw	r26, 0x02	; 2
+ 356:	9c 91       	ld	r25, X
+ 358:	99 23       	and	r25, r25
+ 35a:	19 f0       	breq	.+6      	; 0x362 <Timer_Init+0x9a>
+ 35c:	91 30       	cpi	r25, 0x01	; 1
+ 35e:	31 f0       	breq	.+12     	; 0x36c <Timer_Init+0xa4>
+ 360:	aa c0       	rjmp	.+340    	; 0x4b6 <__LOCK_REGION_LENGTH__+0xb6>
+ 362:	89 b7       	in	r24, 0x39	; 57
+ 364:	8e 7f       	andi	r24, 0xFE	; 254
+ 366:	89 bf       	out	0x39, r24	; 57
+ 368:	89 2f       	mov	r24, r25
+ 36a:	08 95       	ret
+ 36c:	99 b7       	in	r25, 0x39	; 57
+ 36e:	91 60       	ori	r25, 0x01	; 1
+ 370:	99 bf       	out	0x39, r25	; 57
+ 372:	08 95       	ret
+ 374:	14 96       	adiw	r26, 0x04	; 4
+ 376:	2d 91       	ld	r18, X+
+ 378:	3c 91       	ld	r19, X
+ 37a:	15 97       	sbiw	r26, 0x05	; 5
+ 37c:	30 93 67 00 	sts	0x0067, r19	; 0x800067 <sga_Timer1CBF+0x1>
+ 380:	20 93 66 00 	sts	0x0066, r18	; 0x800066 <sga_Timer1CBF>
+ 384:	11 96       	adiw	r26, 0x01	; 1
+ 386:	9c 91       	ld	r25, X
+ 388:	11 97       	sbiw	r26, 0x01	; 1
+ 38a:	91 30       	cpi	r25, 0x01	; 1
+ 38c:	b9 f1       	breq	.+110    	; 0x3fc <Timer_Init+0x134>
+ 38e:	18 f0       	brcs	.+6      	; 0x396 <Timer_Init+0xce>
+ 390:	92 30       	cpi	r25, 0x02	; 2
+ 392:	d9 f1       	breq	.+118    	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+ 394:	08 95       	ret
+ 396:	13 96       	adiw	r26, 0x03	; 3
+ 398:	9c 91       	ld	r25, X
+ 39a:	13 97       	sbiw	r26, 0x03	; 3
+ 39c:	94 30       	cpi	r25, 0x04	; 4
+ 39e:	c9 f0       	breq	.+50     	; 0x3d2 <Timer_Init+0x10a>
+ 3a0:	28 f4       	brcc	.+10     	; 0x3ac <Timer_Init+0xe4>
+ 3a2:	91 30       	cpi	r25, 0x01	; 1
+ 3a4:	41 f0       	breq	.+16     	; 0x3b6 <Timer_Init+0xee>
+ 3a6:	92 30       	cpi	r25, 0x02	; 2
+ 3a8:	69 f0       	breq	.+26     	; 0x3c4 <Timer_Init+0xfc>
+ 3aa:	08 95       	ret
+ 3ac:	96 30       	cpi	r25, 0x06	; 6
+ 3ae:	c1 f0       	breq	.+48     	; 0x3e0 <Timer_Init+0x118>
+ 3b0:	97 30       	cpi	r25, 0x07	; 7
+ 3b2:	e9 f0       	breq	.+58     	; 0x3ee <Timer_Init+0x126>
+ 3b4:	08 95       	ret
+ 3b6:	21 e0       	ldi	r18, 0x01	; 1
+ 3b8:	30 e0       	ldi	r19, 0x00	; 0
+ 3ba:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 3be:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 3c2:	29 c0       	rjmp	.+82     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3c4:	22 e0       	ldi	r18, 0x02	; 2
+ 3c6:	30 e0       	ldi	r19, 0x00	; 0
+ 3c8:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 3cc:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 3d0:	22 c0       	rjmp	.+68     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3d2:	23 e0       	ldi	r18, 0x03	; 3
+ 3d4:	30 e0       	ldi	r19, 0x00	; 0
+ 3d6:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 3da:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 3de:	1b c0       	rjmp	.+54     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3e0:	24 e0       	ldi	r18, 0x04	; 4
+ 3e2:	30 e0       	ldi	r19, 0x00	; 0
+ 3e4:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 3e8:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 3ec:	14 c0       	rjmp	.+40     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3ee:	25 e0       	ldi	r18, 0x05	; 5
+ 3f0:	30 e0       	ldi	r19, 0x00	; 0
+ 3f2:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 3f6:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 3fa:	0d c0       	rjmp	.+26     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 3fc:	27 e0       	ldi	r18, 0x07	; 7
+ 3fe:	30 e0       	ldi	r19, 0x00	; 0
+ 400:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 404:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 408:	06 c0       	rjmp	.+12     	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 40a:	26 e0       	ldi	r18, 0x06	; 6
+ 40c:	30 e0       	ldi	r19, 0x00	; 0
+ 40e:	30 93 6c 00 	sts	0x006C, r19	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 412:	20 93 6b 00 	sts	0x006B, r18	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 416:	12 96       	adiw	r26, 0x02	; 2
+ 418:	9c 91       	ld	r25, X
+ 41a:	99 23       	and	r25, r25
+ 41c:	19 f0       	breq	.+6      	; 0x424 <__LOCK_REGION_LENGTH__+0x24>
+ 41e:	91 30       	cpi	r25, 0x01	; 1
+ 420:	21 f0       	breq	.+8      	; 0x42a <__LOCK_REGION_LENGTH__+0x2a>
+ 422:	08 95       	ret
+ 424:	19 be       	out	0x39, r1	; 57
+ 426:	89 2f       	mov	r24, r25
+ 428:	08 95       	ret
+ 42a:	89 b7       	in	r24, 0x39	; 57
+ 42c:	84 60       	ori	r24, 0x04	; 4
+ 42e:	89 bf       	out	0x39, r24	; 57
+ 430:	80 e0       	ldi	r24, 0x00	; 0
+ 432:	08 95       	ret
+ 434:	14 96       	adiw	r26, 0x04	; 4
+ 436:	8d 91       	ld	r24, X+
+ 438:	9c 91       	ld	r25, X
+ 43a:	15 97       	sbiw	r26, 0x05	; 5
+ 43c:	90 93 65 00 	sts	0x0065, r25	; 0x800065 <__data_end+0x1>
+ 440:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
+ 444:	11 96       	adiw	r26, 0x01	; 1
+ 446:	8c 91       	ld	r24, X
+ 448:	11 97       	sbiw	r26, 0x01	; 1
+ 44a:	81 11       	cpse	r24, r1
+ 44c:	21 c0       	rjmp	.+66     	; 0x490 <__LOCK_REGION_LENGTH__+0x90>
+ 44e:	13 96       	adiw	r26, 0x03	; 3
+ 450:	ec 91       	ld	r30, X
+ 452:	13 97       	sbiw	r26, 0x03	; 3
+ 454:	4e 2f       	mov	r20, r30
+ 456:	50 e0       	ldi	r21, 0x00	; 0
+ 458:	fa 01       	movw	r30, r20
+ 45a:	31 97       	sbiw	r30, 0x01	; 1
+ 45c:	e7 30       	cpi	r30, 0x07	; 7
+ 45e:	f1 05       	cpc	r31, r1
+ 460:	60 f5       	brcc	.+88     	; 0x4ba <__LOCK_REGION_LENGTH__+0xba>
+ 462:	e6 5d       	subi	r30, 0xD6	; 214
+ 464:	ff 4f       	sbci	r31, 0xFF	; 255
+ 466:	0c 94 69 04 	jmp	0x8d2	; 0x8d2 <__tablejump2__>
+ 46a:	81 e0       	ldi	r24, 0x01	; 1
+ 46c:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <gsu8_TCCRT2_Prescaler>
+ 470:	0f c0       	rjmp	.+30     	; 0x490 <__LOCK_REGION_LENGTH__+0x90>
+ 472:	82 e0       	ldi	r24, 0x02	; 2
+ 474:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <gsu8_TCCRT2_Prescaler>
+ 478:	0b c0       	rjmp	.+22     	; 0x490 <__LOCK_REGION_LENGTH__+0x90>
+ 47a:	84 e0       	ldi	r24, 0x04	; 4
+ 47c:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <gsu8_TCCRT2_Prescaler>
+ 480:	07 c0       	rjmp	.+14     	; 0x490 <__LOCK_REGION_LENGTH__+0x90>
+ 482:	86 e0       	ldi	r24, 0x06	; 6
+ 484:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <gsu8_TCCRT2_Prescaler>
+ 488:	03 c0       	rjmp	.+6      	; 0x490 <__LOCK_REGION_LENGTH__+0x90>
+ 48a:	87 e0       	ldi	r24, 0x07	; 7
+ 48c:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <gsu8_TCCRT2_Prescaler>
+ 490:	12 96       	adiw	r26, 0x02	; 2
+ 492:	8c 91       	ld	r24, X
+ 494:	88 23       	and	r24, r24
+ 496:	19 f0       	breq	.+6      	; 0x49e <__LOCK_REGION_LENGTH__+0x9e>
+ 498:	81 30       	cpi	r24, 0x01	; 1
+ 49a:	19 f0       	breq	.+6      	; 0x4a2 <__LOCK_REGION_LENGTH__+0xa2>
+ 49c:	10 c0       	rjmp	.+32     	; 0x4be <__LOCK_REGION_LENGTH__+0xbe>
+ 49e:	19 be       	out	0x39, r1	; 57
+ 4a0:	08 95       	ret
+ 4a2:	80 e4       	ldi	r24, 0x40	; 64
+ 4a4:	89 bf       	out	0x39, r24	; 57
+ 4a6:	80 e0       	ldi	r24, 0x00	; 0
+ 4a8:	08 95       	ret
+ 4aa:	80 e0       	ldi	r24, 0x00	; 0
+ 4ac:	08 95       	ret
+ 4ae:	81 e0       	ldi	r24, 0x01	; 1
+ 4b0:	08 95       	ret
+ 4b2:	81 e0       	ldi	r24, 0x01	; 1
+ 4b4:	08 95       	ret
+ 4b6:	81 e0       	ldi	r24, 0x01	; 1
+ 4b8:	08 95       	ret
+ 4ba:	81 e0       	ldi	r24, 0x01	; 1
+ 4bc:	08 95       	ret
+ 4be:	81 e0       	ldi	r24, 0x01	; 1
+ 4c0:	08 95       	ret
+
+000004c2 <Timer_Start>:
+ 4c2:	81 30       	cpi	r24, 0x01	; 1
+ 4c4:	59 f0       	breq	.+22     	; 0x4dc <Timer_Start+0x1a>
+ 4c6:	18 f0       	brcs	.+6      	; 0x4ce <Timer_Start+0xc>
+ 4c8:	82 30       	cpi	r24, 0x02	; 2
+ 4ca:	a9 f0       	breq	.+42     	; 0x4f6 <Timer_Start+0x34>
+ 4cc:	1b c0       	rjmp	.+54     	; 0x504 <Timer_Start+0x42>
+ 4ce:	61 95       	neg	r22
+ 4d0:	62 bf       	out	0x32, r22	; 50
+ 4d2:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <gsu8_TCCRT0_Prescaler>
+ 4d6:	83 bf       	out	0x33, r24	; 51
+ 4d8:	80 e0       	ldi	r24, 0x00	; 0
+ 4da:	08 95       	ret
+ 4dc:	71 95       	neg	r23
+ 4de:	61 95       	neg	r22
+ 4e0:	71 09       	sbc	r23, r1
+ 4e2:	7d bd       	out	0x2d, r23	; 45
+ 4e4:	6c bd       	out	0x2c, r22	; 44
+ 4e6:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <gsu16_TCCRT1_Prescaler>
+ 4ea:	90 91 6c 00 	lds	r25, 0x006C	; 0x80006c <gsu16_TCCRT1_Prescaler+0x1>
+ 4ee:	9f bd       	out	0x2f, r25	; 47
+ 4f0:	8e bd       	out	0x2e, r24	; 46
+ 4f2:	80 e0       	ldi	r24, 0x00	; 0
+ 4f4:	08 95       	ret
+ 4f6:	61 95       	neg	r22
+ 4f8:	64 bd       	out	0x24, r22	; 36
+ 4fa:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <gsu8_TCCRT2_Prescaler>
+ 4fe:	85 bd       	out	0x25, r24	; 37
+ 500:	80 e0       	ldi	r24, 0x00	; 0
+ 502:	08 95       	ret
+ 504:	81 e0       	ldi	r24, 0x01	; 1
+ 506:	08 95       	ret
+
+00000508 <__vector_11>:
+/********************************************************/
+/*			CallBack Functions definition	        	*/
+/********************************************************/
+
+ISR (TIMER0_OVF_Vect)
+{
+ 508:	1f 92       	push	r1
+ 50a:	0f 92       	push	r0
+ 50c:	0f b6       	in	r0, 0x3f	; 63
+ 50e:	0f 92       	push	r0
+ 510:	11 24       	eor	r1, r1
+ 512:	2f 93       	push	r18
+ 514:	3f 93       	push	r19
+ 516:	4f 93       	push	r20
+ 518:	5f 93       	push	r21
+ 51a:	6f 93       	push	r22
+ 51c:	7f 93       	push	r23
+ 51e:	8f 93       	push	r24
+ 520:	9f 93       	push	r25
+ 522:	af 93       	push	r26
+ 524:	bf 93       	push	r27
+ 526:	ef 93       	push	r30
+ 528:	ff 93       	push	r31
+	if (sga_Timer0CBF!=NULL)
+ 52a:	e0 91 68 00 	lds	r30, 0x0068	; 0x800068 <sga_Timer0CBF>
+ 52e:	f0 91 69 00 	lds	r31, 0x0069	; 0x800069 <sga_Timer0CBF+0x1>
+ 532:	30 97       	sbiw	r30, 0x00	; 0
+ 534:	09 f0       	breq	.+2      	; 0x538 <__vector_11+0x30>
+	{
+		(*sga_Timer0CBF)();
+ 536:	09 95       	icall
+	}
+}
+ 538:	ff 91       	pop	r31
+ 53a:	ef 91       	pop	r30
+ 53c:	bf 91       	pop	r27
+ 53e:	af 91       	pop	r26
+ 540:	9f 91       	pop	r25
+ 542:	8f 91       	pop	r24
+ 544:	7f 91       	pop	r23
+ 546:	6f 91       	pop	r22
+ 548:	5f 91       	pop	r21
+ 54a:	4f 91       	pop	r20
+ 54c:	3f 91       	pop	r19
+ 54e:	2f 91       	pop	r18
+ 550:	0f 90       	pop	r0
+ 552:	0f be       	out	0x3f, r0	; 63
+ 554:	0f 90       	pop	r0
+ 556:	1f 90       	pop	r1
+ 558:	18 95       	reti
+
+0000055a <__vector_9>:
+//------------------------------------------------------------------------------------------------------//
+ISR (TIMER1_OVF_Vect)
+{
+ 55a:	1f 92       	push	r1
+ 55c:	0f 92       	push	r0
+ 55e:	0f b6       	in	r0, 0x3f	; 63
+ 560:	0f 92       	push	r0
+ 562:	11 24       	eor	r1, r1
+ 564:	2f 93       	push	r18
+ 566:	3f 93       	push	r19
+ 568:	4f 93       	push	r20
+ 56a:	5f 93       	push	r21
+ 56c:	6f 93       	push	r22
+ 56e:	7f 93       	push	r23
+ 570:	8f 93       	push	r24
+ 572:	9f 93       	push	r25
+ 574:	af 93       	push	r26
+ 576:	bf 93       	push	r27
+ 578:	ef 93       	push	r30
+ 57a:	ff 93       	push	r31
+	if (sga_Timer1CBF!=NULL)
+ 57c:	e0 91 66 00 	lds	r30, 0x0066	; 0x800066 <sga_Timer1CBF>
+ 580:	f0 91 67 00 	lds	r31, 0x0067	; 0x800067 <sga_Timer1CBF+0x1>
+ 584:	30 97       	sbiw	r30, 0x00	; 0
+ 586:	09 f0       	breq	.+2      	; 0x58a <__vector_9+0x30>
+	{
+		(*sga_Timer1CBF)();
+ 588:	09 95       	icall
+	}
+}
+ 58a:	ff 91       	pop	r31
+ 58c:	ef 91       	pop	r30
+ 58e:	bf 91       	pop	r27
+ 590:	af 91       	pop	r26
+ 592:	9f 91       	pop	r25
+ 594:	8f 91       	pop	r24
+ 596:	7f 91       	pop	r23
+ 598:	6f 91       	pop	r22
+ 59a:	5f 91       	pop	r21
+ 59c:	4f 91       	pop	r20
+ 59e:	3f 91       	pop	r19
+ 5a0:	2f 91       	pop	r18
+ 5a2:	0f 90       	pop	r0
+ 5a4:	0f be       	out	0x3f, r0	; 63
+ 5a6:	0f 90       	pop	r0
+ 5a8:	1f 90       	pop	r1
+ 5aa:	18 95       	reti
+
+000005ac <__vector_5>:
+//------------------------------------------------------------------------------------------------------//
+ISR (TIMER2_OVF_Vect)
+{
+ 5ac:	1f 92       	push	r1
+ 5ae:	0f 92       	push	r0
+ 5b0:	0f b6       	in	r0, 0x3f	; 63
+ 5b2:	0f 92       	push	r0
+ 5b4:	11 24       	eor	r1, r1
+ 5b6:	2f 93       	push	r18
+ 5b8:	3f 93       	push	r19
+ 5ba:	4f 93       	push	r20
+ 5bc:	5f 93       	push	r21
+ 5be:	6f 93       	push	r22
+ 5c0:	7f 93       	push	r23
+ 5c2:	8f 93       	push	r24
+ 5c4:	9f 93       	push	r25
+ 5c6:	af 93       	push	r26
+ 5c8:	bf 93       	push	r27
+ 5ca:	ef 93       	push	r30
+ 5cc:	ff 93       	push	r31
+	if (sga_Timer2CBF!=NULL)
+ 5ce:	e0 91 64 00 	lds	r30, 0x0064	; 0x800064 <__data_end>
+ 5d2:	f0 91 65 00 	lds	r31, 0x0065	; 0x800065 <__data_end+0x1>
+ 5d6:	30 97       	sbiw	r30, 0x00	; 0
+ 5d8:	09 f0       	breq	.+2      	; 0x5dc <__vector_5+0x30>
+	{
+		(*sga_Timer2CBF)();
+ 5da:	09 95       	icall
+	}
+}
+ 5dc:	ff 91       	pop	r31
+ 5de:	ef 91       	pop	r30
+ 5e0:	bf 91       	pop	r27
+ 5e2:	af 91       	pop	r26
+ 5e4:	9f 91       	pop	r25
+ 5e6:	8f 91       	pop	r24
+ 5e8:	7f 91       	pop	r23
+ 5ea:	6f 91       	pop	r22
+ 5ec:	5f 91       	pop	r21
+ 5ee:	4f 91       	pop	r20
+ 5f0:	3f 91       	pop	r19
+ 5f2:	2f 91       	pop	r18
+ 5f4:	0f 90       	pop	r0
+ 5f6:	0f be       	out	0x3f, r0	; 63
+ 5f8:	0f 90       	pop	r0
+ 5fa:	1f 90       	pop	r1
+ 5fc:	18 95       	reti
+
+000005fe <gfu_TimerFlag_CBK>:
+/*					CallBackFunctions    				*/
+/********************************************************/
+
+void gfu_TimerFlag_CBK (void)
+{
+	if (gu8_Session==OFF)
+ 5fe:	80 91 70 00 	lds	r24, 0x0070	; 0x800070 <gu8_Session>
+ 602:	81 11       	cpse	r24, r1
+ 604:	10 c0       	rjmp	.+32     	; 0x626 <gfu_TimerFlag_CBK+0x28>
+	{	/*enable the session for the Dispatcher*/
+		gu8_Session = ON;
+ 606:	81 e0       	ldi	r24, 0x01	; 1
+ 608:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <gu8_Session>
+		/*preload the timer to count only the corresponding ticks not from 0*/
+		Timer_Start(gstr_TMU_Cfgs.Timer_Channel,gstr_TMU_Cfgs.Resolution*TCNT_1MS);		
+ 60c:	e0 e6       	ldi	r30, 0x60	; 96
+ 60e:	f0 e0       	ldi	r31, 0x00	; 0
+ 610:	61 81       	ldd	r22, Z+1	; 0x01
+ 612:	72 81       	ldd	r23, Z+2	; 0x02
+ 614:	62 95       	swap	r22
+ 616:	72 95       	swap	r23
+ 618:	70 7f       	andi	r23, 0xF0	; 240
+ 61a:	76 27       	eor	r23, r22
+ 61c:	60 7f       	andi	r22, 0xF0	; 240
+ 61e:	76 27       	eor	r23, r22
+ 620:	80 81       	ld	r24, Z
+ 622:	0e 94 61 02 	call	0x4c2	; 0x4c2 <Timer_Start>
+ 626:	08 95       	ret
+
+00000628 <TMU_Init>:
+ * Return 		: value of type ERR_STATUS							  *	
+ * Description  : initialize the TMU by initializing the Timer with the	  *
+				  configuration scanned from the user (timer 0,1,2)	      *
+ **************************************************************************/
+ERR_STATUS TMU_Init (void)
+{
+ 628:	1f 93       	push	r17
+ 62a:	cf 93       	push	r28
+ 62c:	df 93       	push	r29
+ 62e:	00 d0       	rcall	.+0      	; 0x630 <TMU_Init+0x8>
+ 630:	00 d0       	rcall	.+0      	; 0x632 <TMU_Init+0xa>
+ 632:	00 d0       	rcall	.+0      	; 0x634 <TMU_Init+0xc>
+ 634:	cd b7       	in	r28, 0x3d	; 61
+ 636:	de b7       	in	r29, 0x3e	; 62
+	ERR_STATUS TMU_Init_Error;
+	TMU_Init_Error=ERR_SUCCESS;
+	
+	if (gs8_TMU_Init_State==NOT_INITIALIZED)
+ 638:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <gs8_TMU_Init_State>
+ 63c:	81 11       	cpse	r24, r1
+ 63e:	14 c0       	rjmp	.+40     	; 0x668 <TMU_Init+0x40>
+	{
+		/*initialize the timer*/
+		Timer_cfg_s TMU;
+		TMU.Timer_Cbk_ptr = gfu_TimerFlag_CBK;
+ 640:	8f ef       	ldi	r24, 0xFF	; 255
+ 642:	92 e0       	ldi	r25, 0x02	; 2
+ 644:	9e 83       	std	Y+6, r25	; 0x06
+ 646:	8d 83       	std	Y+5, r24	; 0x05
+		TMU.Timer_CH_NO=gstr_TMU_Cfgs.Timer_Channel;
+ 648:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 64c:	89 83       	std	Y+1, r24	; 0x01
+		TMU.Timer_Mode=TIMER_MODE;
+ 64e:	1a 82       	std	Y+2, r1	; 0x02
+		TMU.Timer_Polling_Or_Interrupt=TIMER_INTERRUPT_MODE;
+ 650:	11 e0       	ldi	r17, 0x01	; 1
+ 652:	1b 83       	std	Y+3, r17	; 0x03
+		TMU.Timer_Prescaler=TIMER_PRESCALER_1024;
+ 654:	87 e0       	ldi	r24, 0x07	; 7
+ 656:	8c 83       	std	Y+4, r24	; 0x04
+		Timer_Init(&TMU);	
+ 658:	ce 01       	movw	r24, r28
+ 65a:	01 96       	adiw	r24, 0x01	; 1
+ 65c:	0e 94 64 01 	call	0x2c8	; 0x2c8 <Timer_Init>
+		gs8_TMU_Init_State=INITIALIZED;
+ 660:	10 93 6e 00 	sts	0x006E, r17	; 0x80006e <gs8_TMU_Init_State>
+				  configuration scanned from the user (timer 0,1,2)	      *
+ **************************************************************************/
+ERR_STATUS TMU_Init (void)
+{
+	ERR_STATUS TMU_Init_Error;
+	TMU_Init_Error=ERR_SUCCESS;
+ 664:	80 e0       	ldi	r24, 0x00	; 0
+ 666:	05 c0       	rjmp	.+10     	; 0x672 <TMU_Init+0x4a>
+		TMU.Timer_Polling_Or_Interrupt=TIMER_INTERRUPT_MODE;
+		TMU.Timer_Prescaler=TIMER_PRESCALER_1024;
+		Timer_Init(&TMU);	
+		gs8_TMU_Init_State=INITIALIZED;
+	}
+	else if (gs8_TMU_Init_State==INITIALIZED)
+ 668:	81 30       	cpi	r24, 0x01	; 1
+ 66a:	11 f4       	brne	.+4      	; 0x670 <TMU_Init+0x48>
+	{
+		TMU_Init_Error=ERR_ALREADY_INITIALIZED;
+ 66c:	8d ef       	ldi	r24, 0xFD	; 253
+ 66e:	01 c0       	rjmp	.+2      	; 0x672 <TMU_Init+0x4a>
+				  configuration scanned from the user (timer 0,1,2)	      *
+ **************************************************************************/
+ERR_STATUS TMU_Init (void)
+{
+	ERR_STATUS TMU_Init_Error;
+	TMU_Init_Error=ERR_SUCCESS;
+ 670:	80 e0       	ldi	r24, 0x00	; 0
+	{
+		TMU_Init_Error=ERR_ALREADY_INITIALIZED;
+	}
+	return TMU_Init_Error;
+	
+}
+ 672:	26 96       	adiw	r28, 0x06	; 6
+ 674:	0f b6       	in	r0, 0x3f	; 63
+ 676:	f8 94       	cli
+ 678:	de bf       	out	0x3e, r29	; 62
+ 67a:	0f be       	out	0x3f, r0	; 63
+ 67c:	cd bf       	out	0x3d, r28	; 61
+ 67e:	df 91       	pop	r29
+ 680:	cf 91       	pop	r28
+ 682:	1f 91       	pop	r17
+ 684:	08 95       	ret
+
+00000686 <TMU_Start>:
+ * Description  : starts the timer if it's the first time to load in	  *
+				  the database, and load the tasks in the database	      *
+ **************************************************************************/
+
+ERR_STATUS TMU_Start(TMU_Task_cfg_t *gstr_NewTask)
+{	
+ 686:	cf 93       	push	r28
+ 688:	df 93       	push	r29
+ 68a:	fc 01       	movw	r30, r24
+	ERR_STATUS Error_MTU_Start=ERR_SUCCESS;
+	
+	if (gs8_TMU_Init_State==INITIALIZED)
+ 68c:	90 91 6e 00 	lds	r25, 0x006E	; 0x80006e <gs8_TMU_Init_State>
+ 690:	91 30       	cpi	r25, 0x01	; 1
+ 692:	09 f0       	breq	.+2      	; 0x696 <TMU_Start+0x10>
+ 694:	48 c0       	rjmp	.+144    	; 0x726 <TMU_Start+0xa0>
+ 696:	ef 01       	movw	r28, r30
+	{
+		/*check if it's the first element in the database*/
+		if (gu8_index==0)
+ 698:	90 91 71 00 	lds	r25, 0x0071	; 0x800071 <gu8_index>
+ 69c:	91 11       	cpse	r25, r1
+ 69e:	25 c0       	rjmp	.+74     	; 0x6ea <TMU_Start+0x64>
+		{
+			/*if the user input invalid channel number*/
+			if (gstr_TMU_Cfgs.Timer_Channel>2)
+ 6a0:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 6a4:	83 30       	cpi	r24, 0x03	; 3
+ 6a6:	08 f0       	brcs	.+2      	; 0x6aa <TMU_Start+0x24>
+ 6a8:	48 c0       	rjmp	.+144    	; 0x73a <TMU_Start+0xb4>
+			}
+			
+			else 
+			{	
+				/*if the user input invalid resolution for timer 0 or timer 2*/
+				if (((gstr_TMU_Cfgs.Timer_Channel==Timer0_channel)||(gstr_TMU_Cfgs.Timer_Channel==Timer0_channel)) && ((gstr_TMU_Cfgs.Resolution)>MaxResolutionforTimer0or2))
+ 6aa:	81 11       	cpse	r24, r1
+ 6ac:	09 c0       	rjmp	.+18     	; 0x6c0 <TMU_Start+0x3a>
+ 6ae:	20 91 61 00 	lds	r18, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 6b2:	30 91 62 00 	lds	r19, 0x0062	; 0x800062 <__DATA_REGION_ORIGIN__+0x2>
+ 6b6:	21 31       	cpi	r18, 0x11	; 17
+ 6b8:	31 05       	cpc	r19, r1
+ 6ba:	08 f0       	brcs	.+2      	; 0x6be <TMU_Start+0x38>
+ 6bc:	40 c0       	rjmp	.+128    	; 0x73e <TMU_Start+0xb8>
+ 6be:	09 c0       	rjmp	.+18     	; 0x6d2 <TMU_Start+0x4c>
+				{
+					Error_MTU_Start=ERR_HW_CONSTRAIN;
+				}
+				/*if the user input invalid resolution for timer 1*/
+				else if ((gstr_TMU_Cfgs.Timer_Channel==Timer1_channel) && (gstr_TMU_Cfgs.Resolution>MaxResolutionForTimer1))
+ 6c0:	81 30       	cpi	r24, 0x01	; 1
+ 6c2:	39 f4       	brne	.+14     	; 0x6d2 <TMU_Start+0x4c>
+ 6c4:	20 91 61 00 	lds	r18, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 6c8:	30 91 62 00 	lds	r19, 0x0062	; 0x800062 <__DATA_REGION_ORIGIN__+0x2>
+ 6cc:	21 36       	cpi	r18, 0x61	; 97
+ 6ce:	30 41       	sbci	r19, 0x10	; 16
+ 6d0:	c0 f5       	brcc	.+112    	; 0x742 <TMU_Start+0xbc>
+					Error_MTU_Start=ERR_HW_CONSTRAIN;
+				}
+				
+				else 
+				{
+					Timer_Start(gstr_TMU_Cfgs.Timer_Channel,gstr_TMU_Cfgs.Resolution*TCNT_1MS);
+ 6d2:	60 91 61 00 	lds	r22, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 6d6:	70 91 62 00 	lds	r23, 0x0062	; 0x800062 <__DATA_REGION_ORIGIN__+0x2>
+ 6da:	62 95       	swap	r22
+ 6dc:	72 95       	swap	r23
+ 6de:	70 7f       	andi	r23, 0xF0	; 240
+ 6e0:	76 27       	eor	r23, r22
+ 6e2:	60 7f       	andi	r22, 0xF0	; 240
+ 6e4:	76 27       	eor	r23, r22
+ 6e6:	0e 94 61 02 	call	0x4c2	; 0x4c2 <Timer_Start>
+				}
+			}
+		}
+		
+		/*check if the database has more spots free left*/
+		if (gu8_index<MaxNumberOfTasks)
+ 6ea:	90 91 71 00 	lds	r25, 0x0071	; 0x800071 <gu8_index>
+ 6ee:	94 30       	cpi	r25, 0x04	; 4
+ 6f0:	f0 f4       	brcc	.+60     	; 0x72e <TMU_Start+0xa8>
+ 6f2:	80 e0       	ldi	r24, 0x00	; 0
+		{
+			if (gstr_NewTask->ptrfu_Timer_Cbk==NULL)
+ 6f4:	2b 81       	ldd	r18, Y+3	; 0x03
+ 6f6:	3c 81       	ldd	r19, Y+4	; 0x04
+ 6f8:	23 2b       	or	r18, r19
+ 6fa:	d9 f0       	breq	.+54     	; 0x732 <TMU_Start+0xac>
+				Error_MTU_Start=ERR_NULL_PTR;
+			}
+			
+			else if (gstr_NewTask->ptrfu_Timer_Cbk!=NULL)
+			{
+				gastr_TMU_TasksDataBase[gu8_index]=*gstr_NewTask;
+ 6fc:	29 2f       	mov	r18, r25
+ 6fe:	30 e0       	ldi	r19, 0x00	; 0
+ 700:	d9 01       	movw	r26, r18
+ 702:	aa 0f       	add	r26, r26
+ 704:	bb 1f       	adc	r27, r27
+ 706:	aa 0f       	add	r26, r26
+ 708:	bb 1f       	adc	r27, r27
+ 70a:	a2 0f       	add	r26, r18
+ 70c:	b3 1f       	adc	r27, r19
+ 70e:	ae 58       	subi	r26, 0x8E	; 142
+ 710:	bf 4f       	sbci	r27, 0xFF	; 255
+ 712:	25 e0       	ldi	r18, 0x05	; 5
+ 714:	fe 01       	movw	r30, r28
+ 716:	01 90       	ld	r0, Z+
+ 718:	0d 92       	st	X+, r0
+ 71a:	2a 95       	dec	r18
+ 71c:	e1 f7       	brne	.-8      	; 0x716 <TMU_Start+0x90>
+				/*update the index*/
+				gu8_index++;	
+ 71e:	9f 5f       	subi	r25, 0xFF	; 255
+ 720:	90 93 71 00 	sts	0x0071, r25	; 0x800071 <gu8_index>
+ 724:	10 c0       	rjmp	.+32     	; 0x746 <TMU_Start+0xc0>
+			}
+		}		
+	}
+	else if (gs8_TMU_Init_State==NOT_INITIALIZED)
+ 726:	91 11       	cpse	r25, r1
+ 728:	06 c0       	rjmp	.+12     	; 0x736 <TMU_Start+0xb0>
+	{
+		Error_MTU_Start=ERR_NOTINITIALIZED;
+ 72a:	8e ef       	ldi	r24, 0xFE	; 254
+ 72c:	0c c0       	rjmp	.+24     	; 0x746 <TMU_Start+0xc0>
+ 72e:	80 e0       	ldi	r24, 0x00	; 0
+ 730:	0a c0       	rjmp	.+20     	; 0x746 <TMU_Start+0xc0>
+		/*check if the database has more spots free left*/
+		if (gu8_index<MaxNumberOfTasks)
+		{
+			if (gstr_NewTask->ptrfu_Timer_Cbk==NULL)
+			{
+				Error_MTU_Start=ERR_NULL_PTR;
+ 732:	8c ef       	ldi	r24, 0xFC	; 252
+ 734:	08 c0       	rjmp	.+16     	; 0x746 <TMU_Start+0xc0>
+				  the database, and load the tasks in the database	      *
+ **************************************************************************/
+
+ERR_STATUS TMU_Start(TMU_Task_cfg_t *gstr_NewTask)
+{	
+	ERR_STATUS Error_MTU_Start=ERR_SUCCESS;
+ 736:	80 e0       	ldi	r24, 0x00	; 0
+	
+	else 
+	{
+		/*DO NOTHING*/
+	}
+	return Error_MTU_Start;
+ 738:	06 c0       	rjmp	.+12     	; 0x746 <TMU_Start+0xc0>
+		if (gu8_index==0)
+		{
+			/*if the user input invalid channel number*/
+			if (gstr_TMU_Cfgs.Timer_Channel>2)
+			{
+				Error_MTU_Start=ERR_INVALID_ARGU;
+ 73a:	8f ef       	ldi	r24, 0xFF	; 255
+ 73c:	db cf       	rjmp	.-74     	; 0x6f4 <TMU_Start+0x6e>
+			else 
+			{	
+				/*if the user input invalid resolution for timer 0 or timer 2*/
+				if (((gstr_TMU_Cfgs.Timer_Channel==Timer0_channel)||(gstr_TMU_Cfgs.Timer_Channel==Timer0_channel)) && ((gstr_TMU_Cfgs.Resolution)>MaxResolutionforTimer0or2))
+				{
+					Error_MTU_Start=ERR_HW_CONSTRAIN;
+ 73e:	8a ef       	ldi	r24, 0xFA	; 250
+ 740:	d9 cf       	rjmp	.-78     	; 0x6f4 <TMU_Start+0x6e>
+				}
+				/*if the user input invalid resolution for timer 1*/
+				else if ((gstr_TMU_Cfgs.Timer_Channel==Timer1_channel) && (gstr_TMU_Cfgs.Resolution>MaxResolutionForTimer1))
+				{
+					Error_MTU_Start=ERR_HW_CONSTRAIN;
+ 742:	8a ef       	ldi	r24, 0xFA	; 250
+ 744:	d7 cf       	rjmp	.-82     	; 0x6f4 <TMU_Start+0x6e>
+	{
+		/*DO NOTHING*/
+	}
+	return Error_MTU_Start;
+
+}
+ 746:	df 91       	pop	r29
+ 748:	cf 91       	pop	r28
+ 74a:	08 95       	ret
+
+0000074c <Tmu_Stop>:
+ * Return 		: value of type ERR_STATUS								  *	
+ * Description  : stops specific task								      *
+ **************************************************************************/
+
+ERR_STATUS Tmu_Stop(void (*Func_ptr)(void))
+{
+ 74c:	bc 01       	movw	r22, r24
+	ERR_STATUS TMU_STOP_Error=ERR_SUCCESS;
+	
+	if (gs8_TMU_Init_State==INITIALIZED)
+ 74e:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <gs8_TMU_Init_State>
+ 752:	81 30       	cpi	r24, 0x01	; 1
+ 754:	09 f0       	breq	.+2      	; 0x758 <Tmu_Stop+0xc>
+ 756:	41 c0       	rjmp	.+130    	; 0x7da <Tmu_Stop+0x8e>
+	{
+		if (*Func_ptr!=NULL)
+ 758:	61 15       	cp	r22, r1
+ 75a:	71 05       	cpc	r23, r1
+ 75c:	09 f4       	brne	.+2      	; 0x760 <Tmu_Stop+0x14>
+ 75e:	3f c0       	rjmp	.+126    	; 0x7de <Tmu_Stop+0x92>
+		{
+			/*loop all of the database*/
+			for (gu8_Iteration=0;gu8_Iteration<gu8_index;gu8_Iteration++)
+ 760:	10 92 6f 00 	sts	0x006F, r1	; 0x80006f <gu8_Iteration>
+ 764:	40 91 71 00 	lds	r20, 0x0071	; 0x800071 <gu8_index>
+ 768:	44 23       	and	r20, r20
+ 76a:	d9 f1       	breq	.+118    	; 0x7e2 <Tmu_Stop+0x96>
+ 76c:	90 e0       	ldi	r25, 0x00	; 0
+			{
+				/*determine the task of the function to be stopped*/
+				if (gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk==Func_ptr)
+ 76e:	29 2f       	mov	r18, r25
+ 770:	30 e0       	ldi	r19, 0x00	; 0
+ 772:	f9 01       	movw	r30, r18
+ 774:	ee 0f       	add	r30, r30
+ 776:	ff 1f       	adc	r31, r31
+ 778:	ee 0f       	add	r30, r30
+ 77a:	ff 1f       	adc	r31, r31
+ 77c:	e2 0f       	add	r30, r18
+ 77e:	f3 1f       	adc	r31, r19
+ 780:	ee 58       	subi	r30, 0x8E	; 142
+ 782:	ff 4f       	sbci	r31, 0xFF	; 255
+ 784:	03 80       	ldd	r0, Z+3	; 0x03
+ 786:	f4 81       	ldd	r31, Z+4	; 0x04
+ 788:	e0 2d       	mov	r30, r0
+ 78a:	6e 17       	cp	r22, r30
+ 78c:	7f 07       	cpc	r23, r31
+ 78e:	e1 f4       	brne	.+56     	; 0x7c8 <Tmu_Stop+0x7c>
+				{
+					/*over write the struct of the function to be stopped by the last struct in the database*/
+					gastr_TMU_TasksDataBase[gu8_Iteration]=gastr_TMU_TasksDataBase[gu8_index];
+ 790:	d9 01       	movw	r26, r18
+ 792:	aa 0f       	add	r26, r26
+ 794:	bb 1f       	adc	r27, r27
+ 796:	aa 0f       	add	r26, r26
+ 798:	bb 1f       	adc	r27, r27
+ 79a:	a2 0f       	add	r26, r18
+ 79c:	b3 1f       	adc	r27, r19
+ 79e:	ae 58       	subi	r26, 0x8E	; 142
+ 7a0:	bf 4f       	sbci	r27, 0xFF	; 255
+ 7a2:	24 2f       	mov	r18, r20
+ 7a4:	30 e0       	ldi	r19, 0x00	; 0
+ 7a6:	f9 01       	movw	r30, r18
+ 7a8:	ee 0f       	add	r30, r30
+ 7aa:	ff 1f       	adc	r31, r31
+ 7ac:	ee 0f       	add	r30, r30
+ 7ae:	ff 1f       	adc	r31, r31
+ 7b0:	e2 0f       	add	r30, r18
+ 7b2:	f3 1f       	adc	r31, r19
+ 7b4:	ee 58       	subi	r30, 0x8E	; 142
+ 7b6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 7b8:	85 e0       	ldi	r24, 0x05	; 5
+ 7ba:	01 90       	ld	r0, Z+
+ 7bc:	0d 92       	st	X+, r0
+ 7be:	8a 95       	dec	r24
+ 7c0:	e1 f7       	brne	.-8      	; 0x7ba <Tmu_Stop+0x6e>
+					/*update the pointer of the database*/
+					gu8_index--;
+ 7c2:	41 50       	subi	r20, 0x01	; 1
+ 7c4:	40 93 71 00 	sts	0x0071, r20	; 0x800071 <gu8_index>
+	if (gs8_TMU_Init_State==INITIALIZED)
+	{
+		if (*Func_ptr!=NULL)
+		{
+			/*loop all of the database*/
+			for (gu8_Iteration=0;gu8_Iteration<gu8_index;gu8_Iteration++)
+ 7c8:	9f 5f       	subi	r25, 0xFF	; 255
+ 7ca:	90 93 6f 00 	sts	0x006F, r25	; 0x80006f <gu8_Iteration>
+ 7ce:	40 91 71 00 	lds	r20, 0x0071	; 0x800071 <gu8_index>
+ 7d2:	94 17       	cp	r25, r20
+ 7d4:	60 f2       	brcs	.-104    	; 0x76e <Tmu_Stop+0x22>
+ * Description  : stops specific task								      *
+ **************************************************************************/
+
+ERR_STATUS Tmu_Stop(void (*Func_ptr)(void))
+{
+	ERR_STATUS TMU_STOP_Error=ERR_SUCCESS;
+ 7d6:	80 e0       	ldi	r24, 0x00	; 0
+ 7d8:	08 95       	ret
+ 7da:	80 e0       	ldi	r24, 0x00	; 0
+ 7dc:	08 95       	ret
+				}
+			}			
+		}
+		else if (*Func_ptr==NULL)
+		{
+			TMU_STOP_Error=ERR_NULL_PTR;
+ 7de:	8c ef       	ldi	r24, 0xFC	; 252
+ 7e0:	08 95       	ret
+ * Description  : stops specific task								      *
+ **************************************************************************/
+
+ERR_STATUS Tmu_Stop(void (*Func_ptr)(void))
+{
+	ERR_STATUS TMU_STOP_Error=ERR_SUCCESS;
+ 7e2:	80 e0       	ldi	r24, 0x00	; 0
+		TMU_STOP_Error=NOT_INITIALIZED;
+	}
+	
+	return TMU_STOP_Error;
+
+}
+ 7e4:	08 95       	ret
+
+000007e6 <TMU_Dispatcher>:
+ * Description  : updates the time of the system every "resolution" and	  *
+				  takes the corresponding actions						  *
+ **************************************************************************/
+
+ERR_STATUS TMU_Dispatcher ()
+{
+ 7e6:	cf 93       	push	r28
+ 7e8:	df 93       	push	r29
+	ERR_STATUS TMU_Dispatcher_Error=ERR_SUCCESS;
+	
+	if (gs8_TMU_Init_State==INITIALIZED)
+ 7ea:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <gs8_TMU_Init_State>
+ 7ee:	81 30       	cpi	r24, 0x01	; 1
+ 7f0:	09 f0       	breq	.+2      	; 0x7f4 <TMU_Dispatcher+0xe>
+ 7f2:	68 c0       	rjmp	.+208    	; 0x8c4 <__stack+0x65>
+	{
+		/* to enter the dispatcher only after the ISR opens the session (every 1 resolutions)*/
+		if(gu8_Session==ON)
+ 7f4:	80 91 70 00 	lds	r24, 0x0070	; 0x800070 <gu8_Session>
+ 7f8:	81 30       	cpi	r24, 0x01	; 1
+ 7fa:	09 f0       	breq	.+2      	; 0x7fe <TMU_Dispatcher+0x18>
+ 7fc:	65 c0       	rjmp	.+202    	; 0x8c8 <__stack+0x69>
+		{
+			/* loop all of the database*/
+			for (gu8_Iteration=0;gu8_Iteration<=gu8_index;gu8_Iteration++)
+ 7fe:	10 92 6f 00 	sts	0x006F, r1	; 0x80006f <gu8_Iteration>
+ 802:	80 e0       	ldi	r24, 0x00	; 0
+ 804:	c0 e0       	ldi	r28, 0x00	; 0
+							Tmu_Stop(gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk);
+						}
+						
+						else if (gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk==NULL)
+						{
+							TMU_Dispatcher_Error=ERR_NULL_PTR;
+ 806:	dc ef       	ldi	r29, 0xFC	; 252
+		{
+			/* loop all of the database*/
+			for (gu8_Iteration=0;gu8_Iteration<=gu8_index;gu8_Iteration++)
+			{
+				/*update the timing of all tasks*/
+				gastr_TMU_TasksDataBase[gu8_Iteration].current_time++;
+ 808:	90 e0       	ldi	r25, 0x00	; 0
+ 80a:	fc 01       	movw	r30, r24
+ 80c:	ee 0f       	add	r30, r30
+ 80e:	ff 1f       	adc	r31, r31
+ 810:	ee 0f       	add	r30, r30
+ 812:	ff 1f       	adc	r31, r31
+ 814:	e8 0f       	add	r30, r24
+ 816:	f9 1f       	adc	r31, r25
+ 818:	ee 58       	subi	r30, 0x8E	; 142
+ 81a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 81c:	21 81       	ldd	r18, Z+1	; 0x01
+ 81e:	2f 5f       	subi	r18, 0xFF	; 255
+ 820:	21 83       	std	Z+1, r18	; 0x01
+				/*check if any function reached it's period*/
+				if (gastr_TMU_TasksDataBase[gu8_Iteration].current_time==gastr_TMU_TasksDataBase[gu8_Iteration].Period_Time)
+ 822:	32 81       	ldd	r19, Z+2	; 0x02
+ 824:	23 13       	cpse	r18, r19
+ 826:	41 c0       	rjmp	.+130    	; 0x8aa <__stack+0x4b>
+				{
+					/*call the function which to be called every period*/
+					if (gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk!=NULL)
+ 828:	fc 01       	movw	r30, r24
+ 82a:	ee 0f       	add	r30, r30
+ 82c:	ff 1f       	adc	r31, r31
+ 82e:	ee 0f       	add	r30, r30
+ 830:	ff 1f       	adc	r31, r31
+ 832:	8e 0f       	add	r24, r30
+ 834:	9f 1f       	adc	r25, r31
+ 836:	fc 01       	movw	r30, r24
+ 838:	ee 58       	subi	r30, 0x8E	; 142
+ 83a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 83c:	03 80       	ldd	r0, Z+3	; 0x03
+ 83e:	f4 81       	ldd	r31, Z+4	; 0x04
+ 840:	e0 2d       	mov	r30, r0
+ 842:	30 97       	sbiw	r30, 0x00	; 0
+ 844:	11 f0       	breq	.+4      	; 0x84a <TMU_Dispatcher+0x64>
+					{
+						gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk();
+ 846:	09 95       	icall
+ 848:	01 c0       	rjmp	.+2      	; 0x84c <TMU_Dispatcher+0x66>
+					}
+					
+					else if (gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk==NULL)
+					{
+						TMU_Dispatcher_Error=ERR_NULL_PTR;
+ 84a:	cd 2f       	mov	r28, r29
+					{
+						/*DO NOTHING*/
+					}
+
+					/*checks if the function is periodic or one shot*/
+					if (gastr_TMU_TasksDataBase[gu8_Iteration].Repetition==PERIODIC)
+ 84c:	80 91 6f 00 	lds	r24, 0x006F	; 0x80006f <gu8_Iteration>
+ 850:	90 e0       	ldi	r25, 0x00	; 0
+ 852:	fc 01       	movw	r30, r24
+ 854:	ee 0f       	add	r30, r30
+ 856:	ff 1f       	adc	r31, r31
+ 858:	ee 0f       	add	r30, r30
+ 85a:	ff 1f       	adc	r31, r31
+ 85c:	e8 0f       	add	r30, r24
+ 85e:	f9 1f       	adc	r31, r25
+ 860:	ee 58       	subi	r30, 0x8E	; 142
+ 862:	ff 4f       	sbci	r31, 0xFF	; 255
+ 864:	20 81       	ld	r18, Z
+ 866:	21 11       	cpse	r18, r1
+ 868:	0c c0       	rjmp	.+24     	; 0x882 <__stack+0x23>
+					{
+						gastr_TMU_TasksDataBase[gu8_Iteration].current_time=0;
+ 86a:	fc 01       	movw	r30, r24
+ 86c:	ee 0f       	add	r30, r30
+ 86e:	ff 1f       	adc	r31, r31
+ 870:	ee 0f       	add	r30, r30
+ 872:	ff 1f       	adc	r31, r31
+ 874:	8e 0f       	add	r24, r30
+ 876:	9f 1f       	adc	r25, r31
+ 878:	fc 01       	movw	r30, r24
+ 87a:	ee 58       	subi	r30, 0x8E	; 142
+ 87c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 87e:	11 82       	std	Z+1, r1	; 0x01
+ 880:	14 c0       	rjmp	.+40     	; 0x8aa <__stack+0x4b>
+					}
+					else if (gastr_TMU_TasksDataBase[gu8_Iteration].Repetition==ONE_SHOT)
+ 882:	21 30       	cpi	r18, 0x01	; 1
+ 884:	91 f4       	brne	.+36     	; 0x8aa <__stack+0x4b>
+					{
+						if (gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk!=NULL)
+ 886:	fc 01       	movw	r30, r24
+ 888:	ee 0f       	add	r30, r30
+ 88a:	ff 1f       	adc	r31, r31
+ 88c:	ee 0f       	add	r30, r30
+ 88e:	ff 1f       	adc	r31, r31
+ 890:	8e 0f       	add	r24, r30
+ 892:	9f 1f       	adc	r25, r31
+ 894:	fc 01       	movw	r30, r24
+ 896:	ee 58       	subi	r30, 0x8E	; 142
+ 898:	ff 4f       	sbci	r31, 0xFF	; 255
+ 89a:	83 81       	ldd	r24, Z+3	; 0x03
+ 89c:	94 81       	ldd	r25, Z+4	; 0x04
+ 89e:	00 97       	sbiw	r24, 0x00	; 0
+ 8a0:	19 f0       	breq	.+6      	; 0x8a8 <__stack+0x49>
+						{
+							Tmu_Stop(gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk);
+ 8a2:	0e 94 a6 03 	call	0x74c	; 0x74c <Tmu_Stop>
+ 8a6:	01 c0       	rjmp	.+2      	; 0x8aa <__stack+0x4b>
+						}
+						
+						else if (gastr_TMU_TasksDataBase[gu8_Iteration].ptrfu_Timer_Cbk==NULL)
+						{
+							TMU_Dispatcher_Error=ERR_NULL_PTR;
+ 8a8:	cd 2f       	mov	r28, r29
+	{
+		/* to enter the dispatcher only after the ISR opens the session (every 1 resolutions)*/
+		if(gu8_Session==ON)
+		{
+			/* loop all of the database*/
+			for (gu8_Iteration=0;gu8_Iteration<=gu8_index;gu8_Iteration++)
+ 8aa:	80 91 6f 00 	lds	r24, 0x006F	; 0x80006f <gu8_Iteration>
+ 8ae:	8f 5f       	subi	r24, 0xFF	; 255
+ 8b0:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <gu8_Iteration>
+ 8b4:	90 91 71 00 	lds	r25, 0x0071	; 0x800071 <gu8_index>
+ 8b8:	98 17       	cp	r25, r24
+ 8ba:	08 f0       	brcs	.+2      	; 0x8be <__stack+0x5f>
+ 8bc:	a5 cf       	rjmp	.-182    	; 0x808 <TMU_Dispatcher+0x22>
+						}
+					}
+				}
+			}
+			/*close the session*/
+			gu8_Session=OFF;
+ 8be:	10 92 70 00 	sts	0x0070, r1	; 0x800070 <gu8_Session>
+ 8c2:	03 c0       	rjmp	.+6      	; 0x8ca <__stack+0x6b>
+		}		
+	}
+	
+	else if (gs8_TMU_Init_State!=INITIALIZED)
+	{
+		TMU_Dispatcher_Error=ERR_NOTINITIALIZED;
+ 8c4:	ce ef       	ldi	r28, 0xFE	; 254
+ 8c6:	01 c0       	rjmp	.+2      	; 0x8ca <__stack+0x6b>
+				  takes the corresponding actions						  *
+ **************************************************************************/
+
+ERR_STATUS TMU_Dispatcher ()
+{
+	ERR_STATUS TMU_Dispatcher_Error=ERR_SUCCESS;
+ 8c8:	c0 e0       	ldi	r28, 0x00	; 0
+		/*DO NOTHING*/
+	}
+	
+	return TMU_Dispatcher_Error;
+
+}
+ 8ca:	8c 2f       	mov	r24, r28
+ 8cc:	df 91       	pop	r29
+ 8ce:	cf 91       	pop	r28
+ 8d0:	08 95       	ret
+
+000008d2 <__tablejump2__>:
+ 8d2:	ee 0f       	add	r30, r30
+ 8d4:	ff 1f       	adc	r31, r31
+ 8d6:	05 90       	lpm	r0, Z+
+ 8d8:	f4 91       	lpm	r31, Z
+ 8da:	e0 2d       	mov	r30, r0
+ 8dc:	09 94       	ijmp
+
+000008de <_exit>:
+ 8de:	f8 94       	cli
+
+000008e0 <__stop_program>:
+ 8e0:	ff cf       	rjmp	.-2      	; 0x8e0 <__stop_program>
